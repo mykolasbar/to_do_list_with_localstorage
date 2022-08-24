@@ -1,26 +1,43 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect, useRef }  from 'react';
 import ReactDOM from 'react-dom/client';
+import './to_do_list.css'
 
 const ToDoList = () => {
     let [task, setTask] = useState('')
     let [taskArray, setTaskArray] = useState([])
+    let inputRef = useRef('')
+
     let handleSubmit = (event) => {event.preventDefault();
-                                        setTaskArray(current => [...current, task]);
+                                        console.log(task)
+                                        if (task !== '') {
+                                        setTaskArray([...taskArray, task]);
+                                        setTask('')}
                                         }
-    localStorage.setItem('tasks', taskArray)
-    
-    console.log(taskArray)
+
+    useEffect(() => {
+        const retrievedItems = localStorage.getItem("tasks");
+        if (!retrievedItems) localStorage.setItem("tasks", JSON.stringify(taskArray));
+        setTaskArray(JSON.parse(retrievedItems));
+        }, []);
+
+    useEffect(() => {localStorage.setItem('tasks', JSON.stringify(taskArray))}, [taskArray])
+
+    let handleDelete = (i) => {
+        setTaskArray(taskArray.filter((el, index) => index !== i))
+        }  
 
     return (
         <form className = "forBox" onSubmit = { handleSubmit }>
-            <h2>TO-DO list</h2>
+            <div className = "header"><h2>Darbų sąrašas</h2></div>
             <label className = "label" htmlFor="enterTask">Įveskite užduotį:</label>
-            <input name="enterTask" type = "text" id="submition" placeholder="Įveskite užduodį" onChange={(event, value) => {setTask(event.target.value)}}></input>
-            <button type = "submit" name="submit">ĮVESTI</button>
-            <h2 className = "taskList">Užduočių sąrašas</h2>
+            <input name="enterTask" className="taskEnter" type = "text" id="submition" onChange={(event, value) => {setTask(event.target.value)}}></input>
+            <button className="submitButton" type = "submit" name="submit">ĮVESTI</button>
 
-
-            <div>{ taskArray.map((value, index) => <li key = {index}> {value} </li>)}</div>
+            <div>{ taskArray.map((value, index) => <div className = "listItem" key = {index}> 
+                                                        <div>{ value }</div> 
+                                                        <button className="removeButton" onClick={ () => { handleDelete(index)} }>PAŠALINTI</button>
+                                                    </div>) }
+            </div>
         </form>
     );
 };
