@@ -11,7 +11,9 @@ const ToDoList = () => {
                                         console.log(task)
                                         if (task !== '') {
                                         setTaskArray([...taskArray, task]);
-                                        setTask('')}
+                                        setTask('')
+                                        inputRef.current.value = ''
+                                            }
                                         }
 
     useEffect(() => {
@@ -30,7 +32,7 @@ const ToDoList = () => {
         <form className = "forBox" onSubmit = { handleSubmit }>
             <div className = "header"><h2>Darbų sąrašas</h2></div>
             <label className = "label" htmlFor="enterTask">Įveskite užduotį:</label>
-            <input name="enterTask" className="taskEnter" type = "text" id="submition" onChange={(event, value) => {setTask(event.target.value)}}></input>
+            <input name="enterTask" className="taskEnter" type = "text" id="submition" ref = {inputRef} onChange={(event, value) => {setTask(event.target.value)}}></input>
             <button className="submitButton" type = "submit" name="submit">ĮVESTI</button>
 
             <div>{ taskArray.map((value, index) => <div className = "listItem" key = {index}> 
