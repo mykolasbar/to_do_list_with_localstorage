@@ -1,1 +1,1 @@
-Task manager (in Lithuanian). Includes unctionality for editing and deleting tasks.
+Task manager (in Lithuanian). Includes functionality for editing and deleting tasks.
