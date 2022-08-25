@@ -1,4 +1,3 @@
-import './App.css';
 import ToDoList from './to_do_list';
 import Testingjsonserver from './testingjsonserver';
 import './to_do_list.css'
