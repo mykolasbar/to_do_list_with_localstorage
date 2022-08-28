@@ -1,1 +1,1 @@
-Task manager (in Lithuanian). Includes functionality for editing and deleting tasks.
+A simple task manager (in Lithuanian). Includes functionality for adding, editing, canceling editing and deleting tasks and an "About" section. Utilizes the browser's localstorage to retrieve previously added tasks on browser refresh or restart.

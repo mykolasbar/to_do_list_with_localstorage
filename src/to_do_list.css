@@ -1,10 +1,41 @@
+.headerStyle {
+    display:flex;
+    flex-direction:row;
+    padding:20px;
+    position:absolute;
+    top:10px;
+    z-index:+100;
+    width:520px;
+    border-radius: 5px 5px 0 0;
+}
+.linkButton {
+    width:260px;
+    background-color:rgba(150, 219, 207, 0.614);
+    height:70px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    border-radius: 5px 5px 0 0;
+}
+.headerStyle a {
+    padding:15px;
+    text-decoration: none;
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+}
+.linkButton:hover {
+    background-color:rgba(120, 236, 217, 0.749);
+}
 .forBox {
     margin-top:100px;
-    background-color: rgb(189, 250, 240, 0.9);
-    width: 500px;
-    border-radius:5px;
+    background-color: rgb(189, 250, 240, 0.4);
+    width: 483px;
+    border-radius: 0 0 5px 5px;
     padding:20px;
 }
+/* .forBox:hover {
+    background-color: rgb(189, 250, 240, 0.5);
+} */
 .listItem {
     display:flex;
     align-items: center;
@@ -18,7 +49,7 @@
     position:relative;
 }
 .listItem:hover {
-    box-shadow: 2px 2px 2px rgb(127, 130, 131);
+    box-shadow: 2px 2px 2px rgb(75, 78, 79);
 }
 .removeButton {
     background-color: rgb(227, 74, 74);
