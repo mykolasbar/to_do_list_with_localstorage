@@ -1,5 +1,5 @@
 {
-  "homepage": "https://mykolasbar.github.io/to_do_list/",
+  "homepage": "https://mykolasbar.github.io/to_do_list_with_localstorage/",
   "name": "to_do_list",
   "version": "0.1.0",
   "private": true,
