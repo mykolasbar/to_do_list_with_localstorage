@@ -32,7 +32,6 @@ const ToDoList = () => {
         setTaskArray(taskArray.filter((el, index) => index !== i))
         console.log(taskArray.length)
         }
-
     
     let handleEdit = (index) => {
         setEditing(index)
